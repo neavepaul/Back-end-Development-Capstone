@@ -55,7 +55,6 @@ class Photo(models.Model):
         return self.pic_url
 
 
-
 class Song(models.Model):
     id = models.IntegerField(primary_key=True)
     title = models.CharField(max_length=255)
