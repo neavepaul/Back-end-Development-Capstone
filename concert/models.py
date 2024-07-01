@@ -20,15 +20,17 @@ class Concert(models.Model):
 
 class ConcertAttending(models.Model):
     """ """
+
     class AttendingChoices(models.TextChoices):
         """ """
         NOTHING = "-", _("-")
         NOT_ATTENDING = "Not Attending", _("Not Attending")
         ATTENDING = "Attending", _("Attending")
 
-    concert = models.ForeignKey(
-        Concert, null=True, on_delete=models.CASCADE, related_name="attendee"
-    )
+    concert = models.ForeignKey(Concert,
+                                null=True,
+                                on_delete=models.CASCADE,
+                                related_name="attendee")
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     attending = models.CharField(
         max_length=100,
