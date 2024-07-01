@@ -13,6 +13,11 @@ from concert.models import Concert, ConcertAttending
 
 
 def signup(request):
+    """
+
+    :param request: 
+
+    """
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
@@ -36,10 +41,20 @@ def signup(request):
 
 
 def index(request):
+    """
+
+    :param request: 
+
+    """
     return render(request, "index.html")
 
 
 def songs(request):
+    """
+
+    :param request: 
+
+    """
     songs = {
         "songs": [
             {
@@ -53,6 +68,11 @@ def songs(request):
 
 
 def photos(request):
+    """
+
+    :param request: 
+
+    """
     photos = [
         {
             "id": 1,
@@ -67,6 +87,11 @@ def photos(request):
 
 
 def login_view(request):
+    """
+
+    :param request: 
+
+    """
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
@@ -82,11 +107,21 @@ def login_view(request):
 
 
 def logout_view(request):
+    """
+
+    :param request: 
+
+    """
     logout(request)
     return HttpResponseRedirect(reverse("login"))
 
 
 def concerts(request):
+    """
+
+    :param request: 
+
+    """
     if request.user.is_authenticated:
         lst_of_concert = []
         concert_objects = Concert.objects.all()
@@ -102,6 +137,12 @@ def concerts(request):
 
 
 def concert_detail(request, id):
+    """
+
+    :param request: 
+    :param id: 
+
+    """
     if request.user.is_authenticated:
         obj = Concert.objects.get(pk=id)
         try:
@@ -123,6 +164,11 @@ def concert_detail(request, id):
 
 
 def concert_attendee(request):
+    """
+
+    :param request: 
+
+    """
     if request.user.is_authenticated:
         if request.method == "POST":
             concert_id = request.POST.get("concert_id")

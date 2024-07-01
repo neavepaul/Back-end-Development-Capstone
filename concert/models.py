@@ -8,6 +8,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Concert(models.Model):
+    """ """
     concert_name = models.CharField(max_length=255)
     duration = models.IntegerField()
     city = models.CharField(max_length=255)
@@ -18,7 +19,9 @@ class Concert(models.Model):
 
 
 class ConcertAttending(models.Model):
+    """ """
     class AttendingChoices(models.TextChoices):
+        """ """
         NOTHING = "-", _("-")
         NOT_ATTENDING = "Not Attending", _("Not Attending")
         ATTENDING = "Attending", _("Attending")
@@ -34,6 +37,7 @@ class ConcertAttending(models.Model):
     )
 
     class Meta:
+        """ """
         unique_together = ["concert", "user"]
 
     def __str__(self):
@@ -41,6 +45,7 @@ class ConcertAttending(models.Model):
 
 
 class Photo(models.Model):
+    """ """
     id = models.IntegerField(primary_key=True)
     pic_url = models.CharField(max_length=1000)
     event_country = models.CharField(max_length=255)
@@ -49,6 +54,7 @@ class Photo(models.Model):
     event_date = models.DateField(default=datetime.now)
 
     class Meta:
+        """ """
         managed = False
 
     def __str__(self):
@@ -56,11 +62,13 @@ class Photo(models.Model):
 
 
 class Song(models.Model):
+    """ """
     id = models.IntegerField(primary_key=True)
     title = models.CharField(max_length=255)
     lyrics = models.TextField()
 
     class Meta:
+        """ """
         managed = False
 
     def __str__(self):
