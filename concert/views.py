@@ -20,7 +20,7 @@ from concert.models import ConcertAttending
 def signup(request):
     """
 
-    :param request: 
+    :param request:
 
     """
     if request.method == "POST":
@@ -48,7 +48,7 @@ def signup(request):
 def index(request):
     """
 
-    :param request: 
+    :param request:
 
     """
     return render(request, "index.html")
@@ -57,7 +57,7 @@ def index(request):
 def songs(request):
     """
 
-    :param request: 
+    :param request:
 
     """
     songs = {
@@ -75,7 +75,7 @@ def songs(request):
 def photos(request):
     """
 
-    :param request: 
+    :param request:
 
     """
     photos = [
@@ -94,7 +94,7 @@ def photos(request):
 def login_view(request):
     """
 
-    :param request: 
+    :param request:
 
     """
     if request.method == "POST":
@@ -114,7 +114,7 @@ def login_view(request):
 def logout_view(request):
     """
 
-    :param request: 
+    :param request:
 
     """
     logout(request)
@@ -124,7 +124,7 @@ def logout_view(request):
 def concerts(request):
     """
 
-    :param request: 
+    :param request:
 
     """
     if request.user.is_authenticated:
@@ -144,8 +144,8 @@ def concerts(request):
 def concert_detail(request, id):
     """
 
-    :param request: 
-    :param id: 
+    :param request:
+    :param id:
 
     """
     if request.user.is_authenticated:
@@ -171,7 +171,7 @@ def concert_detail(request, id):
 def concert_attendee(request):
     """
 
-    :param request: 
+    :param request:
 
     """
     if request.user.is_authenticated:
